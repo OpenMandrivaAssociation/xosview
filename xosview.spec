@@ -1,7 +1,7 @@
 Summary: An X Window System utility for monitoring system resources
 Name: xosview
 Version: 1.8.0
-Release: 8mdk
+Release: %mkrel 8
 Exclusiveos: Linux
 Url: http://xosview.sourceforge.net	
 Source0: ftp://sunsite.unc.edu/pub/Linux/utils/status/xosview-%{version}.tar.bz2
