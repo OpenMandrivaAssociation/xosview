@@ -1,7 +1,7 @@
 Summary: An X Window System utility for monitoring system resources
 Name: xosview
 Version: 1.8.3
-Release: %mkrel 1
+Release: %mkrel 2
 Exclusiveos: Linux
 Url: http://xosview.sourceforge.net	
 Source0: http://dl.sourceforge.net/sourceforge/xosview/xosview-%{version}.tar.gz
@@ -65,14 +65,26 @@ mkdir -p ./%{_menudir}
 cat > ./%{_menudir}/%{name} <<EOF
 ?package(%{name}):\
 needs="X11"\
-section="Applications/Monitoring"\
+section="System/Monitoring"\
 title="Xosview"\
 longtitle="OS stats viewer"\
 command="%{name}"\
-icon="%{name}.png"
+icon="%{name}.png"\
+xdg="true"
 EOF
 )
-
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
+cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=Xosview
+Comment=System resources monitor for X11
+Exec=%{_bindir}/xosview
+Icon=%{name}
+Terminal=false
+Type=Application
+Categories=System;Monitor;
+EOF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,6 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/%{name}.png
 %{_datadir}/icons/mini/*
 %{_datadir}/icons/large/*
+%{_datadir}/applications/mandriva-%{name}.desktop
 
 %post
 %update_menus
