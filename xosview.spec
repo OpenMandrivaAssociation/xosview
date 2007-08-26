@@ -12,7 +12,9 @@ Source4: %{name}48.png.bz2
 License: GPL
 Group: Monitoring
 Buildroot: %_tmppath/%{name}-root
-BuildRequires: XFree86-devel
+BuildRequires: libxdmcp-devel
+BuildRequires: libxau-devel
+BuildRequires: libx11-devel
 %ifarch alpha
 BuildRequires: egcs
 %endif
