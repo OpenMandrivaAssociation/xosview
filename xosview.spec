@@ -60,19 +60,6 @@ bzcat %SOURCE3 > $RPM_BUILD_ROOT%{_datadir}/icons/%{name}.png
 install -m 755 -d $RPM_BUILD_ROOT%{_datadir}/icons/large
 bzcat %SOURCE4 > $RPM_BUILD_ROOT%{_datadir}/icons/large/%{name}.png
 
-(cd $RPM_BUILD_ROOT
-mkdir -p ./%{_menudir}
-cat > ./%{_menudir}/%{name} <<EOF
-?package(%{name}):\
-needs="X11"\
-section="System/Monitoring"\
-title="Xosview"\
-longtitle="OS stats viewer"\
-command="%{name}"\
-icon="%{name}.png"\
-xdg="true"
-EOF
-)
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
@@ -94,7 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/bin/*
 %{_prefix}/share/man/man1/*
 %{_prefix}/lib/X11/app-defaults/*
-%{_menudir}/*
 %{_datadir}/icons/%{name}.png
 %{_datadir}/icons/mini/*
 %{_datadir}/icons/large/*
