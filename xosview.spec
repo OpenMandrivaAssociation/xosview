@@ -86,8 +86,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/large/*
 %{_datadir}/applications/mandriva-%{name}.desktop
 
+%if %mdkversion < 200900
 %post
 %update_menus
+%endif
 
+%if %mdkversion < 200900
 %postun
 %clean_menus
+%endif
