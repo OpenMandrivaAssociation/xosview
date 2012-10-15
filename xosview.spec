@@ -1,6 +1,6 @@
 Summary: An X Window System utility for monitoring system resources
 Name: xosview
-Version: 1.9.3
+Version: 1.11
 Release: 1
 Exclusiveos: Linux
 Url: http://xosview.sourceforge.net	
@@ -9,17 +9,16 @@ Source2: %{name}16.png.bz2
 Source3: %{name}32.png.bz2
 Source4: %{name}48.png.bz2
 
-License: GPL
+License: GPLv2+
 Group: Monitoring
-BuildRequires: libxdmcp-devel
-BuildRequires: libxau-devel
-BuildRequires: libx11-devel
+BuildRequires: pkgconfig(xdmcp)
+BuildRequires: pkgconfig(xau)
+BuildRequires: pkgconfig(x11)
 %ifarch alpha
 BuildRequires: egcs
 %endif
 # XXX alpha barfs on linux/serial.h
 ExcludeArch: alpha
-Patch0:		install_dirs.patch
 
 %description
 The xosview utility displays a set of bar graphs which show the current
@@ -31,10 +30,9 @@ your system's performance.
 
 %prep
 %setup -q
-%patch0 -p1
 
 sed -e 's:lib/X11/app:share/X11/app:g' \
-        -i xosview.1 || die
+	-i xosview.1 || die
 
 %build
 %make
@@ -48,8 +46,8 @@ chmod u-s %{buildroot}/usr/bin/*
 
 
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Encoding=UTF-8
 Name=Xosview
