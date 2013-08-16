@@ -13,6 +13,7 @@ License: GPLv2+
 Group: Monitoring
 BuildRequires: pkgconfig(xdmcp)
 BuildRequires: pkgconfig(xau)
+BuildRequires: pkgconfig(xpm)
 BuildRequires: pkgconfig(x11)
 %ifarch alpha
 BuildRequires: egcs
