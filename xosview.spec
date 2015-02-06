@@ -1,7 +1,7 @@
 Summary: An X Window System utility for monitoring system resources
 Name: xosview
 Version: 1.16
-Release: 1
+Release: 2
 Exclusiveos: Linux
 Url: http://xosview.sourceforge.net	
 Source0: http://www.pogo.org.uk/~mark/xosview/releases/%{name}-%{version}.tar.gz
