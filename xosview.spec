@@ -3,7 +3,7 @@ Name: xosview
 Version: 1.16
 Release: 2
 Exclusiveos: Linux
-Url: http://xosview.sourceforge.net	
+Url: https://xosview.sourceforge.net	
 Source0: http://www.pogo.org.uk/~mark/xosview/releases/%{name}-%{version}.tar.gz
 Source2: %{name}16.png.bz2
 Source3: %{name}32.png.bz2
