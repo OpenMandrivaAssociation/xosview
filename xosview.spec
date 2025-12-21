@@ -11,6 +11,7 @@ Source4: %{name}48.png.bz2
 
 License: GPLv2+
 Group: Monitoring
+BuildRequires:	make
 BuildRequires: pkgconfig(xdmcp)
 BuildRequires: pkgconfig(xau)
 BuildRequires: pkgconfig(xpm)
